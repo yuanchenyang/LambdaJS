@@ -72,100 +72,46 @@
     <h2>Example</h2>
 
     <div id="example">
-      <dl><dt>code1</dt>
+      <dl><dt>Exercise 1</dt>
       <dd>
-        <pre><code id="code1">(function(x){ return x })(a)</code></pre>
+        <pre>
+          <code id="code1">var I = function(t){ return t };
+var C_I = function(s,t) { return t };
+var C_r = function(s) {return r};
+var K = function(r,s){ return r };</code>
+        </pre>
       </dd></dl>
-      <p><a id="run-code1" href=".">run code1</a></p>
+      <p><a id="run-code1" href=".">run Exercise 1</a></p>
 
-      <dl><dt>code2</dt>
+      <dl><dt>Exercise 2</dt>
       <dd>
-        <pre><code id="code2">(function(x,y){ return x })(a)</code></pre>
+        <pre>
+          <code id="code2">var T = function (a, b) {return a};
+var F = function(a, b) {return b};</code>
+        </pre>
       </dd></dl>
-      <p><a id="run-code2" href=".">run code2</a></p>
+      <p><a id="run-code2" href=".">run Exercise 2</a></p>
 
-      <dl><dt>code3</dt>
+      <dl><dt>Exercise 3</dt>
       <dd>
-        <pre><code id="code3">var k = function(x,y){ return x };
-k(a)(b)</code></pre>
-      </dd></dl>
-      <p><a id="run-code3" href=".">run code3</a></p>
-
-      <dl><dt>code4</dt>
-      <dd>
-        <pre><code id="code4">var s = function(x,y,z){ return x(z)(y(z)) };
-var k = function(x,y){ return x };
-s(k)(k)</code></pre>
-      </dd></dl>
-      <p><a id="run-code4" href=".">run code4</a></p>
-
-      <dl><dt>code5</dt>
-      <dd>
-        <pre><code id="code5">var s = function(x,y,z){ return x(z)(y(z)) };
-var k = function(x,y){ return x };
-s(a)(k)(c)</code></pre>
-      </dd></dl>
-      <p><a id="run-code5" href=".">run code5</a></p>
-
-      <dl><dt>code6</dt>
-      <dd>
-        <pre><code id="code6">var o = function(x){ return x(x)(c) };
-o(o)</code></pre>
-      </dd></dl>
-      <p><a id="run-code6" href=".">run code6</a></p>
-
-      <dl><dt>code7 (leftmost)</dt>
-      <dd>
-        <pre><code id="code7" class="leftmost">var k = function(x,y){ return x };
-var o = function(x){ return x(x)(c) };
-k(a)(o(o))</code></pre>
-      </dd></dl>
-      <p><a id="run-code7" href=".">run code7</a></p>
-
-      <dl><dt>code8 (call by value)</dt>
-      <dd>
-        <pre><code id="code8" class="call-by-value">var k = function(x,y){ return x };
-var o = function(x){ return x(x)(c) };
-k(a)(o(o))</code></pre>
-      </dd></dl>
-      <p><a id="run-code8" href=".">run code8</a></p>
-
-      <dl><dt>code9</dt>
-      <dd>
-        <pre><code id="code9">var _0 = function(s,z){ return z };
+        <pre>
+          <code id="code3">var _0 = function(s,z){ return z };
 var _1 = function(s,z){ return s(z) };
 var _2 = function(s,z){ return s(s(z)) };
 var _3 = function(s,z){ return s(s(s(z))) };
 
-var add = function(m,n,s,z){ return m(s)(n(s)(z)) };
+var successor = function(m,n,f,x) {return m(f)(n(f)(x))};
+var add = function(m,n,f,x){ return m(f)(n(f)(x)) };
 
-add(_2)(_3)</code></pre>
+var multiply = function(m,n,f) { return m(n(f)) };</code>
+        </pre>
       </dd></dl>
-      <p><a id="run-code9" href=".">run code9</a></p>
-
-      <dl><dt>code10</dt>
+      <p><a id="run-code3" href=".">run Exercise 3</a></p>
+    </div>
+    <dl><dt>Exercise 4</dt>
       <dd>
-        <pre><code id="code10">var pair = function(P,Q,x){ return x(P)(Q) }; // cons
-var fst = function(p){ return p(function(x,y){ return x }) }; // car
-var snd = function(p){ return p(function(x,y){ return y }) }; // cdr
-
-var p1 = pair(pair(a)(b))(pair(c)(d));
-fst(snd(p1))</code></pre>
-      </dd></dl>
-      <p><a id="run-code10" href=".">run code10</a></p>
-
-      <dl><dt>code11</dt>
-      <dd>
-        <pre><code id="code11">var t = function(x,y){ return x }; // true
-var f = function(x,y){ return y }; // false
-var cond = function(B,P,Q){ return B(P)(Q) }; // if-then-else
-cond(t)(a)(b) // if true then a else b</code></pre>
-      </dd></dl>
-      <p><a id="run-code11" href=".">run code11</a></p>
-
-      <dl><dt>code12</dt>
-      <dd>
-        <pre><code id="code12">var Y = function(f){ return (function(x){ return f((x)(x)) })(function(x){ return f((x)(x)) }) };
+        <pre>
+          <code id="code4">var Y = function(f){ return (function(x){ return f((x)(x)) })(function(x){ return f((x)(x)) }) };
 
 var _0 = function(s,z){ return z };
 var _1 = function(s,z){ return s(z) };
@@ -179,11 +125,11 @@ var if0 = function(n){ return n(function(x){ return f })(t) }; // if n equals to
 var mul = function(m,n,s,z){ return n(m(s))(z) };
 var pred = function(n,s,z){ return n(function(f,g){ return g(f(s)) })(function(x){ return z })(function(x){ return x }) };
 
-var fact = function(r,n){ return if0(n)(_1)(mul(n)(r(pred(n)))) };
-Y(fact)(_3)</code></pre>
+var F = function(r,n){ return if0(n)(_1)(mul(n)(r(pred(n)))) };
+var fact = Y(F);</code>
+        </pre>
       </dd></dl>
-      <p><a id="run-code12" href=".">run code12</a></p>
-    </div>
+      <p><a id="run-code4" href=".">run Exercise 4</a></p>
 
     <h2>Source code</h2>
 

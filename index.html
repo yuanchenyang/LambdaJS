@@ -100,10 +100,9 @@ var _1 = function(s,z){ return s(z) };
 var _2 = function(s,z){ return s(s(z)) };
 var _3 = function(s,z){ return s(s(s(z))) };
 
-var successor = function(m,n,f,x) {return m(f)(n(f)(x))};
-var add = function(m,n,f,x){ return m(f)(n(f)(x)) };
-
-var multiply = function(m,n,f) { return m(n(f)) };</code>
+var successor = function(n,s,z) {return s(n(s)(z))};
+var add = function(m,n,s,z){ return m(s)(n(s)(z)) };
+var multiply = function(m,n,s) { return m(n(s)) };</code>
         </pre>
       </dd></dl>
       <p><a id="run-code3" href=".">run Exercise 3</a></p>
